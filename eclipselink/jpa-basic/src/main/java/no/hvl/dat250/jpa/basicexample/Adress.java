@@ -8,8 +8,9 @@ import javax.persistence.*;
 
 @Entity
 public class Adress {
-    @EmbeddedId
+    @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
+    private String id; //number and street might not be unique
     private int number;
     private String street;
 
@@ -30,6 +31,10 @@ public class Adress {
 
     public void setStreet(String description) {
         this.street = street;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public List<Person2> getResidence() {
